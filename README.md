@@ -28,3 +28,18 @@ The following line will add the css-file mine4.css and some images in the img-fo
 `rsync -av vendor/alfs18/ramverk1-projekt/src ./`
 
 `rsync -av vendor/alfs18/ramverk1-projekt/view ./`
+
+
+Add the tables to the database db.sqlite
+---------
+`sqlite3 data/db.sqlite < sql/ddl/answer_comments_sqlite.sql`
+
+`sqlite3 data/db.sqlite < sql/ddl/answers_sqlite.sql`
+
+`sqlite3 data/db.sqlite < sql/ddl/comments_sqlite.sql`
+
+`sqlite3 data/db.sqlite < sql/ddl/pictures_sqlite.sql`
+
+`sqlite3 data/db.sqlite < sql/ddl/question_sqlite.sql`
+
+`sqlite3 data/db.sqlite < sql/ddl/user_sqlite.sql`
