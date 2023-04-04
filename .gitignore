@@ -1,0 +1,11 @@
+/.bin
+/build
+/cache
+/vendor
+memory::
+composer.lock
+.phpunit.result.cache
+/content/redovisning
+/content/verktyg
+/.anax
+/.git
