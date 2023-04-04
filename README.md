@@ -18,7 +18,7 @@ or (if you don't want to overwrite header.php and responsive.php):
 
 `rsync -av vendor/alfs18/ramverk1-projekt/content/block/picture.md ./content/block`
 
-This will add the css-file mine4.css and some images in the img-folder:
+The following line will add the css-file mine4.css and some images in the img-folder.
 
 `rsync -av vendor/alfs18/ramverk1-projekt/htdocs ./`
 
