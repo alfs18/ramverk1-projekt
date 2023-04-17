@@ -101,6 +101,46 @@ class Functions
     }
 
 
+    /**
+     * Get one post.
+     *
+     * @param object $di.
+     * @param int $id       the id of the post.
+     * @param string $table the table that contains the post.
+     *
+     * @return array
+     */
+    public function deleteCommentOrAnswer($di, $id, $table)
+    {
+        $db = $di->get("dbqb");
+        $db->connect();
+        $sql = "DELETE FROM $table WHERE questionId = ?;";
+        $db->execute($sql, [$id]);
+
+        return "Deleted";
+    }
+
+
+    /**
+     * Get one post.
+     *
+     * @param object $di.
+     * @param int $id       the id of the post.
+     * @param string $table the table that contains the post.
+     *
+     * @return array
+     */
+    public function deleteAnswerComments($di, $id)
+    {
+        $db = $di->get("dbqb");
+        $db->connect();
+        $sql = "DELETE FROM AnswerComments WHERE answerId = ?;";
+        $db->execute($sql, [$id]);
+
+        return "Deleted";
+    }
+
+
 
     /**
      * Get all users.

@@ -629,6 +629,7 @@ class UserController implements ContainerInjectableInterface
         // Get all from comments where id = $commentId.
         $res = new Functions();
         $comment = $res->getOneQuestionComment($this->di, $commentId);
+        var_dump($comment);
 
         $acronym = $comment[0]->acronym;
         $answer = $comment[0]->comment;
@@ -877,6 +878,27 @@ class UserController implements ContainerInjectableInterface
             $res->updatePost($this->di, $id, $table, $rows, $altered);
             $response->redirect("user/editPost/{$id}/{$table}");
         } elseif ($delete) {
+            if ($table == "Question") {
+                // remove question
+                $res->deletePost($this->di, $id, $table);
+
+                // remove comments
+                $res->deleteCommentOrAnswer($this->di, $id, "Comments");
+
+                // get answers
+                $answers = $res->getQuestionAnswers($this->di, $id);
+
+                // remove answers
+                foreach ($answers as $answer) {
+                    $res->deleteCommentOrAnswer($this->di, $id, "Answers");
+
+                    // remove answer comments
+                    $res->deleteAnswerComments($this->di, $answer->id);
+                }
+            } elseif ($table == "Answers") {
+                // remove answer comments
+                $res->deleteAnswerComments($this->di, $id);
+            }
             $res->deletePost($this->di, $id, $table);
 
             $page->add("anax/v2/article/default", [
@@ -965,7 +987,7 @@ class UserController implements ContainerInjectableInterface
      */
     public function pointsAction(string $table, int $qId, int $id, int $points)
     {
-        $page = $this->di->get("page");
+        // $page = $this->di->get("page");
         $response = $this->di->get("response");
 
         $res = new Functions();
@@ -978,16 +1000,5 @@ class UserController implements ContainerInjectableInterface
         $smask = $res->setPoints($this->di, $table, $id, $result);
 
         return $response->redirect("user/viewQuestion/{$qId}");
-
-        // $ans = $res->getQuestionAnswers($this->di, 1);
-        // var_dump($ans);
-
-        // $page->add("anax/v2/article/default", [
-        //     "content" => "Hello",
-        // ]);
-        //
-        // return $page->render([
-        //     "title" => "Points",
-        // ]);
     }
 }

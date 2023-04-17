@@ -94,9 +94,9 @@ use Alfs18\User\HTMLForm\CreateAnswerCommentsForm;
         <?php if ($user == $comment->acronym) :?>
             <a href="../../user/editPost/<?= $comment->id ?>/AnswerComments"> Ändra </a>
         <?php endif; ?>
-        <?php if ($user == $res[0]->acronym) :?>
-            <p><a class="answer-button" href="<?= url("user/acceptAnswer/{$qId}/{$row->id}"); ?>"> Godkänn som svar </a></p>
-        <?php endif; ?>
+        <!-- <?php if ($user == $res[0]->acronym) :?>
+            <p><a class="answer-button" href="<?= url("user/acceptAnswer/{$qId}/{$comment->id}"); ?>"> Godkänn som svar </a></p>
+        <?php endif; ?> -->
     </div>
     </div>
     <?php endforeach; ?>
