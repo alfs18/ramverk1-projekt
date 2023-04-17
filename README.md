@@ -1,11 +1,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/9b229ffd9fce8eb3ace0/maintainability)](https://codeclimate.com/github/alfs18/ramverk1-projekt/maintainability)
-
 [![Test Coverage](https://api.codeclimate.com/v1/badges/9b229ffd9fce8eb3ace0/test_coverage)](https://codeclimate.com/github/alfs18/ramverk1-projekt/test_coverage)
-
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/alfs18/ramverk1-projekt/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/alfs18/ramverk1-projekt/?branch=main)
-
 [![Build Status](https://scrutinizer-ci.com/g/alfs18/ramverk1-projekt/badges/build.png?b=main)](https://scrutinizer-ci.com/g/alfs18/ramverk1-projekt/build-status/main)
-
 [![Code Intelligence Status](https://scrutinizer-ci.com/g/alfs18/ramverk1-projekt/badges/code-intelligence.svg?b=main)](https://scrutinizer-ci.com/code-intelligence)
 
 Install the module
