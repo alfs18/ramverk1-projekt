@@ -686,7 +686,7 @@ class UserController implements ContainerInjectableInterface
         $size = "?width=50&height=50&crop-to-fit&area=0,0,0,0";
 
         foreach ($questions as $question) {
-            $acronym = $question->acronym;
+            $acronym = $res->changeCharacter($question->acronym);
             $questionId = $question->id;
 
             // get profile picture of the user who made a question
@@ -779,13 +779,13 @@ class UserController implements ContainerInjectableInterface
 
         // var_dump($comments);
         $qId = $question[0]->id;
-        // var_dump($qId);
-        $acronym = $_SESSION["acronym"];
-        // var_dump($acronym);
 
-        $form = new CreateCommentsForm($this->di, $acronym, $qId);
+        $user = $_SESSION["acronym"];
+
+        $form = new CreateCommentsForm($this->di, $user, $qId);
         $form->check();
 
+        $acronym = $res->changeCharacter($question[0]->acronym);
         // $aForm = new CreateAnswerCommentsForm($this->di, $acronym, $aId ?? 1);
         // $aForm->check();
 
@@ -795,7 +795,7 @@ class UserController implements ContainerInjectableInterface
         $up = "<img src='../../../htdocs/image/up.png' width='30px'></img>";
         $down = "<img src='../../../htdocs/image/down.png' width='30px'></img>";
 
-        $user = $_SESSION["acronym"];
+
 
         $page->add("view-question", [
             "res" => $question,
@@ -945,7 +945,7 @@ class UserController implements ContainerInjectableInterface
         $size = "?width=50&height=50&crop-to-fit&area=0,0,0,0";
 
         foreach ($questions as $question) {
-            $acronym = $question->acronym;
+            $acronym = $res->changeCharacter($question->acronym);
             $questionId = $question->id;
 
             // get profile picture of the user who made a question
